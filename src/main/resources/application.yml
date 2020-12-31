@@ -1,1 +1,14 @@
 logging.level.org.springframework.security: DEBUG
+nacos:
+  config:
+    server-addr: 192.168.10.220:30005
+    username: dev
+    password: xtmdev
+    auto-refresh: true
+    enable-remote-sync-config: true
+    namespace: 1b7dfbb3-7615-438d-95c7-391d082d9577
+    group: DEFAULT_GROUP
+    remote-first: true
+    type: properties
+    max-retry: 10
+
