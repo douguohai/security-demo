@@ -12,32 +12,38 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        //开启httpbasic认证
+//        http.formLogin()
+//                .failureHandler(myAuthenticationFailureHandler())
+//                .and()
+//                .authorizeRequests()
+//                .anyRequest()
+//                .authenticated().and().exceptionHandling();
+////                .accessDeniedHandler(myAccessDeniedHandler())
+////                .authenticationEntryPoint(myAuthenticationEntryPoint());
+////                .and().authenticationProvider(myAuthenticationProvider());//所有请求都需要登录认证才能访问/
+//    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //开启httpbasic认证
-        http.formLogin()
-                .failureHandler(myAuthenticationFailureHandler())
-                .and()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated().and().exceptionHandling();
-//                .accessDeniedHandler(myAccessDeniedHandler())
-//                .authenticationEntryPoint(myAuthenticationEntryPoint());
-//                .and().authenticationProvider(myAuthenticationProvider());//所有请求都需要登录认证才能访问/
+        http.formLogin().and().authorizeRequests().antMatchers("/bean/**").permitAll();
     }
 
     @Bean
-    MyAuthenticationFailureHandler myAuthenticationFailureHandler(){
+    MyAuthenticationFailureHandler myAuthenticationFailureHandler() {
         return new MyAuthenticationFailureHandler();
     }
 
     @Bean
-    MyAccessDeniedHandler myAccessDeniedHandler(){
+    MyAccessDeniedHandler myAccessDeniedHandler() {
         return new MyAccessDeniedHandler();
     }
 
     @Bean
-    MyAuthenticationEntryPoint myAuthenticationEntryPoint(){
+    MyAuthenticationEntryPoint myAuthenticationEntryPoint() {
         return new MyAuthenticationEntryPoint();
     }
 
@@ -50,8 +56,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.inMemoryAuthentication().withUser("user").password("1234");
 //    }
-
-
 
 
 }

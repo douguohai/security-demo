@@ -61,6 +61,12 @@
             <version>5.2.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.gitee.tooleek</groupId>
+            <artifactId>lock-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

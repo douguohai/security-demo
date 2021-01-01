@@ -2,6 +2,8 @@ package com.example.securitydemo.nacos;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
+import io.gitee.tooleek.lock.spring.boot.annotation.Lock;
+import io.gitee.tooleek.lock.spring.boot.enumeration.LockType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
