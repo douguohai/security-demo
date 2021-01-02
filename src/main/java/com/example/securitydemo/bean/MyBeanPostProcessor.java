@@ -18,14 +18,14 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if ("lockRedissonClient".equals(beanName)) {
-            Redisson redisson = (Redisson) bean;
-            org.redisson.config.Config config = redisson.getConfig();
-            SingleServerConfig singleServerConfig = config.useSingleServer();
-            singleServerConfig.setAddress(String.format("%s%s%s%s", "redis://", "127.0.0.1", ":", 6379));
-            ((Redisson) bean).shutdown();
-            bean = Redisson.create(config);
-            System.out.println(bean.getClass().getSimpleName());
-            System.out.println(beanName);
+//            Redisson redisson = (Redisson) bean;
+//            org.redisson.config.Config config = redisson.getConfig();
+//            SingleServerConfig singleServerConfig = config.useSingleServer();
+//            singleServerConfig.setAddress(String.format("%s%s%s%s", "redis://", "127.0.0.1", ":", 6379));
+//            ((Redisson) bean).shutdown();
+//            bean = Redisson.create(config);
+//            System.out.println(bean.getClass().getSimpleName());
+//            System.out.println(beanName);
         }
         return bean;
     }
